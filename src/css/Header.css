@@ -1,0 +1,42 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 80%;
+}
+
+h1 {
+  font-size: 3.15em;
+}
+
+.search-button,
+.back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button i,
+.back-button i {
+  font-size: 2em;
+}
+
+@media screen and (max-width: 770px) {
+  h1 {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .search-button i,
+  .back-button i {
+    font-size: 1.9em;
+  }
+}

@@ -1,0 +1,25 @@
+.results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 65%;
+}
+
+.back-button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+h2 {
+  overflow: hidden;
+  font-size: 2em;
+  font-weight: 400;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 770px) {
+  .results {
+    width: 100%;
+  }
+}

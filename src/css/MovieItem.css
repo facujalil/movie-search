@@ -1,0 +1,32 @@
+.movie-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.movie-item-title {
+  font-size: 1.15em;
+  font-weight: 400;
+}
+
+.movie-item:hover .movie-item-title {
+  text-decoration: underline;
+}
+
+.movie-item img {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 770px) {
+  .movie-item {
+    align-items: center;
+  }
+
+  .movie-item-title {
+    text-align: center;
+  }
+}

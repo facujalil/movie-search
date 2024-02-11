@@ -1,0 +1,13 @@
+.genre-button-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 40rem;
+  max-width: 100%;
+}
+
+.genre-button-list li {
+  list-style: none;
+}
