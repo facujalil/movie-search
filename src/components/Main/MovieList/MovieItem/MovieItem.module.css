@@ -1,0 +1,28 @@
+.movieItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.movieItemTitle {
+  font-size: 1.15em;
+  font-weight: 400;
+}
+
+.movieItem:hover .movieItemTitle {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 770px) {
+  .movieItem {
+    align-items: center;
+  }
+
+  .movieItemTitle {
+    text-align: center;
+  }
+}

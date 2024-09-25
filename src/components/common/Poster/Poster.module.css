@@ -1,0 +1,48 @@
+.poster,
+.posterNotFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemView.poster,
+.itemView.posterNotFound {
+  width: 100%;
+}
+
+.detailView.poster,
+.detailView.posterNotFound {
+  float: left;
+  width: 15rem;
+  margin-right: 1rem;
+}
+
+.poster img {
+  width: 100%;
+  object-fit: cover;
+  outline: 1px solid #ffffff;
+  outline-offset: -1px;
+}
+
+.noImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background-color: #a0a0a0;
+}
+
+.noImage img {
+  width: 38%;
+}
+
+@media screen and (max-width: 570px) {
+  .detailView.poster,
+  .detailView.posterNotFound {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}

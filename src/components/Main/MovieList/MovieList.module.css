@@ -1,0 +1,14 @@
+.movieList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  justify-items: center;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media screen and (max-width: 570px) {
+  .movieList {
+    grid-template-columns: auto;
+  }
+}

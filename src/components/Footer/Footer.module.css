@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Code Saver";
+  src: url("../../fonts/Code-Saver-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Code Saver";
+  src: url("../../fonts/Code-Saver-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+.footer p {
+  font-size: 0.875em;
+  font-family: "Code Saver";
+}
+
+.footer a {
+  font-weight: 700;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer i {
+  margin-left: 0.2rem;
+}

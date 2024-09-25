@@ -1,0 +1,44 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(53, 92, 125, 1);
+  border-radius: 99px;
+}
+
+.pagination button.locked {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.pagination button span {
+  font-size: 1.15em;
+}
+
+.currentPageNumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  font-size: 1em;
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 370px) {
+  .pagination button {
+    gap: 0;
+  }
+}

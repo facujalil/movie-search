@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./App.css";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import style from "./App.module.css";
+import Header from "./components/Header/Header";
+import Main from "./components//Main/Main";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -11,7 +11,7 @@ function App() {
   const [page, setPage] = useState(1);
 
   return (
-    <div className="app">
+    <div className={style.app}>
       <Header
         movies={movies}
         setMovies={setMovies}

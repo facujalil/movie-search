@@ -1,0 +1,12 @@
+.genreButton {
+  padding: 0.5rem;
+  font-size: 1.15em;
+  background-color: rgba(53, 92, 125, 1);
+  border-radius: 99px;
+}
+
+.genreButton.selected {
+  color: #000000;
+  background-color: #ffffff;
+  cursor: default;
+}
