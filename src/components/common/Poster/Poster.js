@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./Poster.module.css";
-import noImage from "../../../img/no-image.png";
+import noImage from "img/no-image.png";
 
 function Poster({ view, movie }) {
   const [poster, setPoster] = useState({

@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./MovieCard.module.css";
-import Poster from "../../../common/Poster/Poster";
+import Poster from "components/common/Poster/Poster";
 
 function MovieCard({ movie, setMovieDetail }) {
   const getMovieById = async (movieId) => {

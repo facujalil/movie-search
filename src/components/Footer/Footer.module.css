@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Code Saver";
-  src: url("../../fonts/Code-Saver-Regular.ttf") format("truetype");
+  src: url("fonts/Code-Saver-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Code Saver";
-  src: url("../../fonts/Code-Saver-Bold.ttf") format("truetype");
+  src: url("fonts/Code-Saver-Bold.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
 }
