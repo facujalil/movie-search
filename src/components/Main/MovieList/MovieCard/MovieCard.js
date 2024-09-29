@@ -6,7 +6,7 @@ function MovieCard({ movie, setMovieDetail }) {
   const getMovieById = async (movieId) => {
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=e33ba4ffa1811d3cdbfe3c3bb59332ad`
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}`
       );
       if (!res.ok) {
         const errorData = await res.json();

@@ -34,7 +34,7 @@ function SearchForm({
   const getMoviesBySearch = async (searchMovie, page) => {
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/movie?query=${searchMovie}&page=${page}&api_key=e33ba4ffa1811d3cdbfe3c3bb59332ad`
+        `https://api.themoviedb.org/3/search/movie?query=${searchMovie}&page=${page}&api_key=${process.env.REACT_APP_API_KEY}`
       );
       if (!res.ok) {
         const errorData = await res.json();
