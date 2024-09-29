@@ -1,4 +1,4 @@
-.movieItem {
+.movieCard {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,21 +8,21 @@
   cursor: pointer;
 }
 
-.movieItemTitle {
+.movieCard h4 {
   font-size: 1.15em;
   font-weight: 400;
 }
 
-.movieItem:hover .movieItemTitle {
+.movieCard:hover h4 {
   text-decoration: underline;
 }
 
 @media screen and (max-width: 770px) {
-  .movieItem {
+  .movieCard {
     align-items: center;
   }
 
-  .movieItemTitle {
+  .movieCard h4 {
     text-align: center;
   }
 }

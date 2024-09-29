@@ -5,8 +5,8 @@
   align-items: center;
 }
 
-.itemView.poster,
-.itemView.posterNotFound {
+.cardView.poster,
+.cardView.posterNotFound {
   width: 100%;
 }
 

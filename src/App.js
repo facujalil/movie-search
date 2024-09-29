@@ -5,30 +5,24 @@ import Main from "./components//Main/Main";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  const [topic, setTopic] = useState("");
-  const [error, setError] = useState("");
-  const [page, setPage] = useState(1);
+  const [movieList, setMovieList] = useState([]);
+  const [pagination, setPagination] = useState({
+    currentPage: 1,
+    totalPages: null,
+  });
 
   return (
     <div className={style.app}>
       <Header
-        movies={movies}
-        setMovies={setMovies}
-        topic={topic}
-        setTopic={setTopic}
-        error={error}
-        setError={setError}
-        page={page}
-        setPage={setPage}
+        setMovieList={setMovieList}
+        pagination={pagination}
+        setPagination={setPagination}
       />
 
       <Main
-        movies={movies}
-        topic={topic}
-        error={error}
-        page={page}
-        setPage={setPage}
+        movieList={movieList}
+        pagination={pagination}
+        setPagination={setPagination}
       />
 
       <Footer />

@@ -1,9 +1,9 @@
-.genreButtonList {
+.genreList {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  max-width: 40rem;
   width: 100%;
+  max-width: 40rem;
 }

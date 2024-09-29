@@ -4,21 +4,20 @@ import Modal from "./Modal/Modal";
 import MovieList from "./MovieList/MovieList";
 import Pagination from "./Pagination/Pagination";
 
-function Main({ movies, topic, error, page, setPage }) {
-  const [movieDetail, setMovieDetail] = useState([]);
-  const [modal, setModal] = useState(false);
+function Main({ movieList, pagination, setPagination }) {
+  const [movieDetail, setMovieDetail] = useState(null);
 
   return (
     <main className={style.main}>
-      {modal && <Modal movieDetail={movieDetail} setModal={setModal} />}
+      <Modal movieDetail={movieDetail} setMovieDetail={setMovieDetail} />
 
-      <MovieList
-        movies={movies}
-        setMovieDetail={setMovieDetail}
-        setModal={setModal}
+      <MovieList movieList={movieList} setMovieDetail={setMovieDetail} />
+
+      <Pagination
+        movieList={movieList}
+        pagination={pagination}
+        setPagination={setPagination}
       />
-
-      <Pagination topic={topic} error={error} page={page} setPage={setPage} />
     </main>
   );
 }

@@ -1,63 +1,64 @@
 import React, { useEffect, useState } from "react";
 import style from "./Menu.module.css";
 import SearchForm from "./SearchForm/SearchForm";
-import Results from "./Results/Results";
-import GenreButtonList from "./GenteButtonList/GenreButtonList";
+import ResultMessage from "./ResultMessage/ResultMessage";
+import GenreList from "./GenreList/GenreList";
 
-function Menu({
-  movies,
-  setMovies,
-  topic,
-  setTopic,
-  error,
-  setError,
-  page,
-  setPage,
-}) {
+function Menu({ setMovieList, pagination, setPagination }) {
   const [genreId, setGenreId] = useState(28);
-  const [searchedMovie, setSearchedMovie] = useState("");
+  const [searchMovie, setSearchMovie] = useState("");
+  const [resultMessage, setResultMessage] = useState("");
 
   useEffect(() => {
-    getMoviesByGenre(genreId);
-  }, [genreId, page]);
+    if (genreId && !searchMovie) {
+      getMoviesByGenreId(genreId, pagination.currentPage);
+    }
+  }, [genreId, searchMovie, pagination.currentPage]);
 
-  const getMoviesByGenre = async (genreId) => {
-    setTopic("");
-    setError("");
-    setGenreId(genreId);
+  const getMoviesByGenreId = async (genreId, page) => {
+    try {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&page=${page}&api_key=e33ba4ffa1811d3cdbfe3c3bb59332ad`
+      );
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.status_message || "Something went wrong.");
+      }
 
-    const res = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=e33ba4ffa1811d3cdbfe3c3bb59332ad&with_genres=${genreId}&page=${page}`
-    );
-    const data = await res.json();
-
-    setMovies(data.results);
+      const data = await res.json();
+      setMovieList(data.results);
+      setPagination((pagination) => ({
+        ...pagination,
+        totalPages: data.total_pages < 100 ? data.total_pages : 99,
+      }));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <div className={style.menu}>
       <SearchForm
-        setMovies={setMovies}
-        searchedMovie={searchedMovie}
-        setSearchedMovie={setSearchedMovie}
-        setTopic={setTopic}
-        setError={setError}
+        searchMovie={searchMovie}
+        setSearchMovie={setSearchMovie}
+        pagination={pagination}
+        setPagination={setPagination}
+        setMovieList={setMovieList}
+        setResultMessage={setResultMessage}
       />
 
-      {topic || error ? (
-        <Results
-          genreId={genreId}
-          movies={movies}
-          setSearchedMovie={setSearchedMovie}
-          topic={topic}
-          error={error}
-          getMoviesByGenre={getMoviesByGenre}
+      {searchMovie && resultMessage ? (
+        <ResultMessage
+          setSearchMovie={setSearchMovie}
+          resultMessage={resultMessage}
+          setResultMessage={setResultMessage}
+          setPagination={setPagination}
         />
       ) : (
-        <GenreButtonList
+        <GenreList
           genreId={genreId}
           setGenreId={setGenreId}
-          setPage={setPage}
+          setPagination={setPagination}
         />
       )}
     </div>

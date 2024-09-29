@@ -1,19 +1,19 @@
 import React from "react";
 import style from "./MovieList.module.css";
-import MovieItem from "./MovieItem/MovieItem";
+import MovieCard from "./MovieCard/MovieCard";
 
-function MovieList({ movies, setMovieDetail, setModal }) {
+function MovieList({ movieList, setMovieDetail }) {
   return (
     <div className={style.movieList}>
-      {movies.length > 0 &&
-        movies.map((movie) => (
-          <MovieItem
-            key={movie.id}
-            movie={movie}
-            setMovieDetail={setMovieDetail}
-            setModal={setModal}
-          />
-        ))}
+      {movieList.length > 0
+        ? movieList.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              setMovieDetail={setMovieDetail}
+            />
+          ))
+        : null}
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from "react";
-import style from "./GenreButtonList.module.css";
+import style from "./GenreList.module.css";
 import GenreButton from "./GenreButton/GenreButton";
 
-function GenreButtonList({ genreId, setGenreId, setPage }) {
-  const genres = [
+function GenreList({ genreId, setGenreId, setPagination }) {
+  const genreList = [
     {
       name: "Action",
       id: 28,
@@ -47,14 +47,14 @@ function GenreButtonList({ genreId, setGenreId, setPage }) {
   ];
 
   return (
-    <ul className={style.genreButtonList}>
-      {genres.map((genre) => (
+    <ul className={style.genreList}>
+      {genreList.map((genre) => (
         <li key={genre.id}>
           <GenreButton
             genre={genre}
             genreId={genreId}
             setGenreId={setGenreId}
-            setPage={setPage}
+            setPagination={setPagination}
           />
         </li>
       ))}
@@ -62,4 +62,4 @@ function GenreButtonList({ genreId, setGenreId, setPage }) {
   );
 }
 
-export default GenreButtonList;
+export default GenreList;

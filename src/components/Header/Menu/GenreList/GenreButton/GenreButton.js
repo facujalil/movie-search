@@ -1,15 +1,15 @@
 import React from "react";
 import style from "./GenreButton.module.css";
 
-function GenreButton({ genre, genreId, setGenreId, setPage }) {
+function GenreButton({ genre, genreId, setGenreId, setPagination }) {
   return (
     <button
       className={`${style.genreButton} ${
-        genre.id === genreId ? style.selected : null
+        genre.id === genreId ? style.selected : undefined
       }`}
       onClick={() => {
         setGenreId(genre.id);
-        setPage(1);
+        setPagination({ currentPage: 1, totalPages: null });
       }}
     >
       {genre.name}

@@ -1,20 +1,11 @@
 .movieDetail {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  width: 40rem;
+  width: 100%;
+  max-width: 40rem;
   margin-top: auto;
   margin-bottom: auto;
   padding: 2rem;
   background-color: #ffffff;
-}
-
-.movieDetail h3,
-.movieDetail p {
-  color: #000000;
 }
 
 .movieDetail button {
@@ -35,42 +26,27 @@
   font-size: 1em;
 }
 
-.movieDetailTitle {
+.movieDetail h3,
+.movieDetail p {
+  color: #000000;
+}
+
+.movieDetail h3 {
+  margin-bottom: 2rem;
   font-size: 1.35em;
   font-weight: 500;
 }
 
-.movieDetailContent {
-  width: 100%;
-}
-
-.movieDetailContent p {
+.movieDetail p {
   font-size: 1.1em;
 }
 
-.movieDetailDate {
+.movieDetail p:first-of-type {
   margin-bottom: 1rem;
-}
-
-@media screen and (max-width: 770px) {
-  .movieDetail {
-    max-width: 100%;
-  }
 }
 
 @media screen and (max-width: 570px) {
   .movieDetail {
     width: 80vw;
-  }
-
-  .movieDetailContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .movieDetailContent p {
-    width: 100%;
   }
 }

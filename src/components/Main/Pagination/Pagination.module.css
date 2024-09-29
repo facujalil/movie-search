@@ -24,7 +24,7 @@
   font-size: 1.15em;
 }
 
-.currentPageNumber {
+.currentPage {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,5 +40,9 @@
 @media screen and (max-width: 370px) {
   .pagination button {
     gap: 0;
+  }
+
+  .pagination button span {
+    display: none;
   }
 }

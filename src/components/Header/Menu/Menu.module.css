@@ -4,5 +4,6 @@
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  width: 100%;
+  width: 43.75rem;
+  max-width: 100%;
 }

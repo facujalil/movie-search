@@ -1,62 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./Pagination.module.css";
 
-function Pagination({ topic, error, page, setPage }) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+function Pagination({ movieList, pagination, setPagination }) {
+  const navigateToPage = (direction) => {
+    setPagination((pagination) => ({
+      ...pagination,
+      currentPage:
+        direction === "previous"
+          ? pagination.currentPage - 1
+          : direction === "next"
+          ? pagination.currentPage + 1
+          : pagination.currentPage,
+    }));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
-
-  return (
-    <>
-      {!topic && !error && (
-        <div className={style.pagination}>
-          <>
-            <button
-              className={page === 1 ? style.locked : null}
-              onClick={
-                page !== 1
-                  ? () => {
-                      setPage(page - 1);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }
-                  : null
-              }
-            >
-              <i className="material-symbols-outlined">arrow_back</i>
-              {windowWidth > 370 ? <span>Previous</span> : null}
-            </button>
-
-            <span className={style.currentPageNumber}>{page}</span>
-
-            <button
-              className={page === 99 ? style.locked : null}
-              onClick={
-                page !== 99
-                  ? () => {
-                      setPage(page + 1);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }
-                  : null
-              }
-            >
-              {windowWidth > 370 ? <span>Next</span> : null}
-              <i className="material-symbols-outlined">arrow_forward</i>
-            </button>
-          </>
-        </div>
-      )}
-    </>
-  );
+  return movieList.length > 0 ? (
+    <div className={style.pagination}>
+      <button
+        className={pagination.currentPage === 1 ? style.locked : undefined}
+        onClick={() =>
+          pagination.currentPage !== 1 ? navigateToPage("previous") : null
+        }
+      >
+        <i className="material-symbols-outlined">arrow_back</i>
+        <span>Previous</span>
+      </button>
+      <span className={style.currentPage}>{pagination.currentPage}</span>
+      <button
+        className={
+          pagination.currentPage === pagination.totalPages
+            ? style.locked
+            : undefined
+        }
+        onClick={() =>
+          pagination.currentPage !== pagination.totalPages
+            ? navigateToPage("next")
+            : null
+        }
+      >
+        <span>Next</span>
+        <i className="material-symbols-outlined">arrow_forward</i>
+      </button>
+    </div>
+  ) : null;
 }
 
 export default Pagination;
