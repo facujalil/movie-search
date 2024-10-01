@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./Pagination.module.css";
+import { MoviesContext } from "context/MoviesContext";
 
-function Pagination({ movieList, pagination, setPagination }) {
+function Pagination() {
+  const { pagination, setPagination } = useContext(MoviesContext);
+
   const navigateToPage = (direction) => {
     setPagination((pagination) => ({
       ...pagination,
@@ -15,7 +18,7 @@ function Pagination({ movieList, pagination, setPagination }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  return movieList.length > 0 ? (
+  return (
     <div className={style.pagination}>
       <button
         className={pagination.currentPage === 1 ? style.locked : undefined}
@@ -43,7 +46,7 @@ function Pagination({ movieList, pagination, setPagination }) {
         <i className="material-symbols-outlined">arrow_forward</i>
       </button>
     </div>
-  ) : null;
+  );
 }
 
 export default Pagination;

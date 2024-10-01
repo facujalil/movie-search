@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Menu.module.css";
+import { MoviesContext } from "context/MoviesContext";
 import SearchForm from "./SearchForm/SearchForm";
 import ResultMessage from "./ResultMessage/ResultMessage";
 import GenreList from "./GenreList/GenreList";
 
-function Menu({ setMovieList, pagination, setPagination }) {
+function Menu() {
+  const { pagination, setPagination, setMovieList } = useContext(MoviesContext);
+
   const [genreId, setGenreId] = useState(28);
   const [searchMovie, setSearchMovie] = useState("");
   const [resultMessage, setResultMessage] = useState("");
@@ -41,25 +44,17 @@ function Menu({ setMovieList, pagination, setPagination }) {
       <SearchForm
         searchMovie={searchMovie}
         setSearchMovie={setSearchMovie}
-        pagination={pagination}
-        setPagination={setPagination}
-        setMovieList={setMovieList}
         setResultMessage={setResultMessage}
       />
 
-      {searchMovie && resultMessage ? (
+      {resultMessage && searchMovie ? (
         <ResultMessage
-          setSearchMovie={setSearchMovie}
           resultMessage={resultMessage}
           setResultMessage={setResultMessage}
-          setPagination={setPagination}
+          setSearchMovie={setSearchMovie}
         />
       ) : (
-        <GenreList
-          genreId={genreId}
-          setGenreId={setGenreId}
-          setPagination={setPagination}
-        />
+        <GenreList genreId={genreId} setGenreId={setGenreId} />
       )}
     </div>
   );

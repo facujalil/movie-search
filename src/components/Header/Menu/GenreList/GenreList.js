@@ -2,7 +2,7 @@ import React from "react";
 import style from "./GenreList.module.css";
 import GenreButton from "./GenreButton/GenreButton";
 
-function GenreList({ genreId, setGenreId, setPagination }) {
+function GenreList({ genreId, setGenreId }) {
   const genreList = [
     {
       name: "Action",
@@ -54,7 +54,6 @@ function GenreList({ genreId, setGenreId, setPagination }) {
             genre={genre}
             genreId={genreId}
             setGenreId={setGenreId}
-            setPagination={setPagination}
           />
         </li>
       ))}

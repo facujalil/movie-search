@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./SearchForm.module.css";
+import { MoviesContext } from "context/MoviesContext";
 
-function SearchForm({
-  searchMovie,
-  setSearchMovie,
-  pagination,
-  setPagination,
-  setMovieList,
-  setResultMessage,
-}) {
+function SearchForm({ searchMovie, setSearchMovie, setResultMessage }) {
+  const { pagination, setPagination, setMovieList } = useContext(MoviesContext);
+
   const [input, setInput] = useState("");
 
   useEffect(() => {
@@ -48,7 +44,7 @@ function SearchForm({
         totalPages: data.total_pages < 100 ? data.total_pages : 99,
       }));
       if (data.results.length > 0) {
-        setResultMessage(`You search result of "${searchMovie}"`);
+        setResultMessage(`Your search results for "${searchMovie}"`);
       } else {
         setResultMessage("No results found");
       }

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./GenreButton.module.css";
+import { MoviesContext } from "context/MoviesContext";
 
-function GenreButton({ genre, genreId, setGenreId, setPagination }) {
+function GenreButton({ genre, genreId, setGenreId }) {
+  const { setPagination } = useContext(MoviesContext);
+
   return (
     <button
       className={`${style.genreButton} ${

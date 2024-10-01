@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./MovieList.module.css";
+import { MoviesContext } from "context/MoviesContext";
 import MovieCard from "./MovieCard/MovieCard";
 
-function MovieList({ movieList, setMovieDetail }) {
+function MovieList({ setMovieDetail }) {
+  const { movieList } = useContext(MoviesContext);
+
   return (
     <div className={style.movieList}>
-      {movieList.length > 0
-        ? movieList.map((movie) => (
-            <MovieCard
-              key={movie.id}
-              movie={movie}
-              setMovieDetail={setMovieDetail}
-            />
-          ))
-        : null}
+      {movieList.map((movie) => (
+        <MovieCard
+          key={movie.id}
+          movie={movie}
+          setMovieDetail={setMovieDetail}
+        />
+      ))}
     </div>
   );
 }
