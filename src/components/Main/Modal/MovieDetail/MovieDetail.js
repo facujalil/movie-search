@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./MovieDetail.module.css";
-import Poster from "components/common/Poster/Poster";
+import Poster from "components/Main/common/Poster/Poster";
 
 function MovieDetail({ movieDetail, setMovieDetail }) {
   return (
